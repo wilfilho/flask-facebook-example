@@ -12,6 +12,7 @@ FACEBOOK_APP_SECRET = '0a8a9c8752749aec9a797dc588a0cacd'
 
 app = Flask(__name__)
 app.debug = True
+app.secret_key = "e76e4653d85f728b47347112ed79a0675bd93ef8a9ef5937"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
 
 
@@ -68,8 +69,7 @@ facebook = oauth.remote_app('facebook',
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    # do stuff
-    return "NOOOOOOO MOTHERFUCKER"
+    return "You can't access this."
 
 @login_manager.user_loader
 def load_user(id):
