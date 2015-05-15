@@ -115,7 +115,6 @@ def get_facebook_oauth_token():
 ##############################################################################
 @app.route('/')
 def index():
-    print session.get('oauth_token')
     return render_template('index.html')
 
 @app.route('/me')
