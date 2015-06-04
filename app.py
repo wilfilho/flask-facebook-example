@@ -1,3 +1,4 @@
+import os
 from flask import (Flask, redirect, url_for, session, request,
                     render_template, g)
 from flask.ext.login import (LoginManager, login_required, login_user,
@@ -6,13 +7,13 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask_oauth import OAuth
 
 
-FACEBOOK_APP_ID = '386129798251777'
-FACEBOOK_APP_SECRET = '0a8a9c8752749aec9a797dc588a0cacd'
+FACEBOOK_APP_ID = os.environ['FACEBOOK_APP_ID']
+FACEBOOK_APP_SECRET = os.environ['FACEBOOK_APP_SECRET']
 
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = "e76e4653d85f728b47347112ed79a0675bd93ef8a9ef5937"
+app.secret_key = os.environ['APP_SECRET_KEY']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
 
 
